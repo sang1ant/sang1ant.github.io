@@ -1,0 +1,1444 @@
+<style>
+/* =========================================================
+   LAST LEDGER — TILDA LANDING PAGE
+   ========================================================= */
+
+@font-face {
+    font-family: "Kelson Sans RU";
+    src: url("PASTE_YOUR_KELSON_FONT_URL_HERE") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --bg: #0b0b0c;
+    --bg-soft: #111113;
+    --card: #151518;
+    --card-hover: #1b1b1f;
+    --text: #f2f0ed;
+    --muted: #9a9997;
+    --line: #29292d;
+    --red: #9f2929;
+    --red-bright: #c13a3a;
+    --white: #ffffff;
+
+    --container: 1240px;
+    --radius: 4px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Kelson Sans RU", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+body,
+button,
+a {
+    font-family: "Kelson Sans RU", Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+.ll-section {
+    width: 100%;
+    position: relative;
+}
+
+.ll-container {
+    width: min(var(--container), calc(100% - 80px));
+    margin: 0 auto;
+}
+
+.ll-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--red-bright);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.ll-eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--red-bright);
+}
+
+.ll-title {
+    margin: 0;
+    font-size: clamp(42px, 6vw, 86px);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+}
+
+.ll-text {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.ll-red {
+    color: var(--red-bright);
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.ll-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(159, 41, 41, 0.16),
+            transparent 34%
+        ),
+        var(--bg);
+}
+
+.ll-hero-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px 0;
+}
+
+.ll-hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.ll-logo {
+    font-size: 15px;
+    letter-spacing: 0.22em;
+    margin-bottom: 55px;
+    color: #d5d3d0;
+}
+
+.ll-logo span {
+    color: var(--red-bright);
+}
+
+.ll-hero-title {
+    font-size: clamp(62px, 8vw, 126px);
+    line-height: 0.82;
+    letter-spacing: -0.065em;
+    margin: 0 0 34px;
+    font-weight: 800;
+}
+
+.ll-hero-subtitle {
+    max-width: 540px;
+    font-size: clamp(20px, 2vw, 27px);
+    line-height: 1.25;
+    margin-bottom: 28px;
+}
+
+.ll-hero-description {
+    max-width: 500px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.ll-hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 38px;
+    flex-wrap: wrap;
+}
+
+.ll-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 25px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: 0.25s ease;
+}
+
+.ll-button:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+.ll-button-primary {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+.ll-button-primary:hover {
+    background: var(--red-bright);
+    color: var(--white);
+}
+
+.ll-hero-visual {
+    position: relative;
+}
+
+.ll-image-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--line);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.01)
+        );
+    overflow: hidden;
+}
+
+.ll-image-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49.8%,
+            rgba(255,255,255,0.04) 50%,
+            transparent 50.2%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 49.8%,
+            rgba(255,255,255,0.04) 50%,
+            transparent 50.2%
+        );
+}
+
+.ll-placeholder-label {
+    position: absolute;
+    left: 22px;
+    bottom: 20px;
+    color: #5f5e60;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.ll-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--red);
+    border-style: solid;
+}
+
+.ll-corner-tl {
+    top: -1px;
+    left: -1px;
+    border-width: 1px 0 0 1px;
+}
+
+.ll-corner-br {
+    right: -1px;
+    bottom: -1px;
+    border-width: 0 1px 1px 0;
+}
+
+.ll-scroll {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* =========================
+   INTRO
+   ========================= */
+
+.ll-intro {
+    padding: 160px 0;
+    border-top: 1px solid var(--line);
+}
+
+.ll-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.ll-intro-heading {
+    font-size: clamp(36px, 5vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    margin: 0;
+}
+
+.ll-intro-copy {
+    padding-top: 12px;
+    max-width: 520px;
+}
+
+/* =========================
+   FEATURES
+   ========================= */
+
+.ll-features {
+    padding: 120px 0;
+    background: var(--bg-soft);
+}
+
+.ll-section-heading {
+    max-width: 700px;
+    margin-bottom: 70px;
+}
+
+.ll-section-heading .ll-title {
+    margin-bottom: 24px;
+}
+
+.ll-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+}
+
+.ll-feature {
+    min-height: 340px;
+    padding: 36px;
+    background: var(--card);
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.ll-feature:hover {
+    background: var(--card-hover);
+}
+
+.ll-feature-number {
+    font-size: 12px;
+    color: var(--red-bright);
+    letter-spacing: 0.15em;
+}
+
+.ll-feature h3 {
+    margin: 90px 0 18px;
+    font-size: 29px;
+    letter-spacing: -0.025em;
+}
+
+.ll-feature p {
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+    font-size: 15px;
+}
+
+/* =========================
+   QUOTE
+   ========================= */
+
+.ll-quote {
+    padding: 180px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.ll-quote::before {
+    content: "“";
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    font-size: 400px;
+    line-height: 1;
+    color: rgba(255,255,255,0.025);
+}
+
+.ll-quote-inner {
+    max-width: 1050px;
+}
+
+.ll-quote-text {
+    margin: 0;
+    font-size: clamp(48px, 7vw, 100px);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+    font-weight: 700;
+}
+
+/* =========================
+   CHARACTERS
+   ========================= */
+
+.ll-characters {
+    padding: 120px 0;
+    border-top: 1px solid var(--line);
+}
+
+.ll-character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.ll-character {
+    background: var(--card);
+    border: 1px solid var(--line);
+}
+
+.ll-character-image {
+    aspect-ratio: 3 / 4;
+    background: #101012;
+    position: relative;
+    overflow: hidden;
+}
+
+.ll-character-info {
+    padding: 20px;
+}
+
+.ll-character-name {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.ll-character-role {
+    font-size: 11px;
+    color: var(--red-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+/* =========================
+   GAMEPLAY
+   ========================= */
+
+.ll-gameplay {
+    padding: 130px 0;
+    background: var(--bg-soft);
+}
+
+.ll-gameplay-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 0;
+    border-top: 1px solid var(--line);
+}
+
+.ll-gameplay-row:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.ll-gameplay-row.reverse .ll-gameplay-image {
+    order: 2;
+}
+
+.ll-gameplay-image {
+    aspect-ratio: 16 / 10;
+    background: #111113;
+    border: 1px solid var(--line);
+    position: relative;
+}
+
+.ll-gameplay-number {
+    color: var(--red-bright);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    margin-bottom: 20px;
+}
+
+.ll-gameplay h3 {
+    font-size: clamp(34px, 4vw, 55px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0 0 22px;
+}
+
+.ll-gameplay p {
+    max-width: 480px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+/* =========================
+   AUDIENCE
+   ========================= */
+
+.ll-audience {
+    padding: 140px 0;
+}
+
+.ll-audience-list {
+    margin-top: 60px;
+    border-top: 1px solid var(--line);
+}
+
+.ll-audience-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.ll-audience-item span:first-child {
+    font-size: 22px;
+}
+
+.ll-audience-item span:last-child {
+    color: var(--red-bright);
+    font-size: 12px;
+}
+
+/* =========================
+   STATUS
+   ========================= */
+
+.ll-status {
+    padding: 170px 0;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(159, 41, 41, 0.12),
+            transparent 45%
+        ),
+        var(--bg-soft);
+}
+
+.ll-status-title {
+    font-size: clamp(50px, 8vw, 115px);
+    line-height: 0.86;
+    letter-spacing: -0.06em;
+    margin: 0 auto 35px;
+    max-width: 1100px;
+}
+
+.ll-status-description {
+    color: var(--muted);
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.ll-status-grid {
+    max-width: 700px;
+    margin: 70px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+}
+
+.ll-status-card {
+    padding: 30px;
+    background: var(--card);
+}
+
+.ll-status-label {
+    display: block;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.ll-status-value {
+    font-size: 19px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.ll-footer {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+}
+
+.ll-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ll-footer-logo {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+}
+
+.ll-footer-meta {
+    color: #666;
+    font-size: 11px;
+}
+
+/* =========================
+   ANIMATION
+   ========================= */
+
+.ll-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.ll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .ll-container {
+        width: min(100% - 40px, 650px);
+    }
+
+    .ll-hero-grid,
+    .ll-intro-grid,
+    .ll-gameplay-row {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .ll-hero-grid {
+        padding: 80px 0;
+    }
+
+    .ll-hero {
+        min-height: auto;
+    }
+
+    .ll-hero-visual {
+        order: -1;
+    }
+
+    .ll-logo {
+        margin-bottom: 35px;
+    }
+
+    .ll-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ll-character-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ll-gameplay-row.reverse .ll-gameplay-image {
+        order: 0;
+    }
+
+    .ll-intro,
+    .ll-features,
+    .ll-characters,
+    .ll-gameplay,
+    .ll-audience {
+        padding: 90px 0;
+    }
+
+    .ll-quote {
+        padding: 110px 0;
+    }
+
+    .ll-status {
+        padding: 120px 0;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .ll-container {
+        width: calc(100% - 28px);
+    }
+
+    .ll-hero-title {
+        font-size: 62px;
+    }
+
+    .ll-hero-subtitle {
+        font-size: 20px;
+    }
+
+    .ll-character-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .ll-character-info {
+        padding: 14px;
+    }
+
+    .ll-character-name {
+        font-size: 16px;
+    }
+
+    .ll-feature {
+        min-height: 280px;
+        padding: 25px;
+    }
+
+    .ll-feature h3 {
+        margin-top: 60px;
+    }
+
+    .ll-status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ll-audience-item span:first-child {
+        font-size: 17px;
+    }
+
+    .ll-footer-inner {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+</style>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="ll-section ll-hero" id="top">
+
+    <div class="ll-container ll-hero-grid">
+
+        <div class="ll-hero-copy ll-reveal">
+
+            <div class="ll-logo">
+                LAST <span>LEDGER</span>
+            </div>
+
+            <h1 class="ll-hero-title">
+                LAST<br>
+                LEDGER
+            </h1>
+
+            <div class="ll-hero-subtitle">
+                Каждое решение имеет цену.
+                Некоторые — ты заметишь слишком поздно.
+            </div>
+
+            <div class="ll-hero-description">
+                Нарративная бизнес-игра о людях, деньгах,
+                доверии и последствиях решений.
+            </div>
+
+            <div class="ll-hero-buttons">
+
+                <a href="#about" class="ll-button ll-button-primary">
+                    Узнать больше
+                </a>
+
+                <a href="#status" class="ll-button">
+                    Статус проекта
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="ll-hero-visual ll-reveal">
+
+            <!-- ВСТАВЬ СЮДА ГЛАВНЫЙ АРТ -->
+            <div class="ll-image-placeholder">
+
+                <span class="ll-placeholder-label">
+                    MAIN ART / 16:10
+                </span>
+
+                <div class="ll-corner ll-corner-tl"></div>
+                <div class="ll-corner ll-corner-br"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="ll-scroll">
+        SCROLL TO DISCOVER
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+     ========================================================= -->
+
+<section class="ll-section ll-intro" id="about">
+
+    <div class="ll-container ll-intro-grid">
+
+        <div class="ll-reveal">
+
+            <div class="ll-eyebrow">
+                ABOUT THE GAME
+            </div>
+
+            <h2 class="ll-intro-heading">
+                Ты получил
+                <span class="ll-red">бизнес.</span>
+                Но не получил
+                инструкцию.
+            </h2>
+
+        </div>
+
+
+        <div class="ll-intro-copy ll-reveal">
+
+            <p class="ll-text">
+                Родители неожиданно уезжают и оставляют
+                тебе семейную компанию.
+            </p>
+
+            <p class="ll-text">
+                Сначала всё кажется обычным:
+                сотрудники работают, клиенты звонят,
+                документы лежат на своих местах.
+            </p>
+
+            <p class="ll-text">
+                Но постепенно появляются странности.
+                Кто-то что-то скрывает.
+                В отчётах возникают несостыковки.
+                А некоторые решения начинают влиять
+                на бизнес сильнее, чем ты ожидал.
+            </p>
+
+            <p class="ll-text">
+                <strong style="color:#f2f0ed;">
+                    Тебе придётся не просто управлять.
+                    Тебе придётся разобраться,
+                    что происходит на самом деле.
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURES
+     ========================================================= -->
+
+<section class="ll-section ll-features">
+
+    <div class="ll-container">
+
+        <div class="ll-section-heading ll-reveal">
+
+            <div class="ll-eyebrow">
+                CORE
+            </div>
+
+            <h2 class="ll-title">
+                ТРИ ВЕЩИ,<br>
+                КОТОРЫЕ ТЕБЕ<br>
+                ПРИДЁТСЯ ДЕЛАТЬ.
+            </h2>
+
+        </div>
+
+
+        <div class="ll-features-grid">
+
+            <div class="ll-feature ll-reveal">
+
+                <div class="ll-feature-number">
+                    01 / РЕШАЙ
+                </div>
+
+                <h3>
+                    Принимай решения
+                </h3>
+
+                <p>
+                    Распределяй задачи, работай
+                    с сотрудниками и клиентами,
+                    управляй ресурсами компании.
+                </p>
+
+            </div>
+
+
+            <div class="ll-feature ll-reveal">
+
+                <div class="ll-feature-number">
+                    02 / НАБЛЮДАЙ
+                </div>
+
+                <h3>
+                    Замечай детали
+                </h3>
+
+                <p>
+                    Люди не всегда говорят то,
+                    что думают. Следи за поведением
+                    и ищи то, что остаётся между строк.
+                </p>
+
+            </div>
+
+
+            <div class="ll-feature ll-reveal">
+
+                <div class="ll-feature-number">
+                    03 / ИССЛЕДУЙ
+                </div>
+
+                <h3>
+                    Собирай факты
+                </h3>
+
+                <p>
+                    Проверяй документы, изучай отчёты,
+                    сопоставляй события и пытайся
+                    понять, кому можно доверять.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUOTE
+     ========================================================= -->
+
+<section class="ll-section ll-quote">
+
+    <div class="ll-container">
+
+        <div class="ll-quote-inner ll-reveal">
+
+            <div class="ll-eyebrow">
+                YOUR CHOICE
+            </div>
+
+            <p class="ll-quote-text">
+                Нет правильного
+                ответа.
+                Есть только
+                <span class="ll-red">последствия.</span>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CHARACTERS
+     ========================================================= -->
+
+<section class="ll-section ll-characters">
+
+    <div class="ll-container">
+
+        <div class="ll-section-heading ll-reveal">
+
+            <div class="ll-eyebrow">
+                CHARACTERS
+            </div>
+
+            <h2 class="ll-title">
+                КОМУ ТЫ<br>
+                БУДЕШЬ<br>
+                ДОВЕРЯТЬ?
+            </h2>
+
+            <p class="ll-text">
+                В компании работают люди со своими
+                характерами, интересами и целями.
+            </p>
+
+        </div>
+
+
+        <div class="ll-character-grid">
+
+            <!-- КАРТОЧКА ПЕРСОНАЖА -->
+
+            <div class="ll-character ll-reveal">
+
+                <div class="ll-character-image">
+
+                    <span class="ll-placeholder-label">
+                        CHARACTER / 01
+                    </span>
+
+                </div>
+
+                <div class="ll-character-info">
+
+                    <div class="ll-character-name">
+                        Секретарь
+                    </div>
+
+                    <div class="ll-character-role">
+                        Проводник
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ll-character ll-reveal">
+
+                <div class="ll-character-image">
+
+                    <span class="ll-placeholder-label">
+                        CHARACTER / 02
+                    </span>
+
+                </div>
+
+                <div class="ll-character-info">
+
+                    <div class="ll-character-name">
+                        Сотрудник
+                    </div>
+
+                    <div class="ll-character-role">
+                        Подчинённый
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ll-character ll-reveal">
+
+                <div class="ll-character-image">
+
+                    <span class="ll-placeholder-label">
+                        CHARACTER / 03
+                    </span>
+
+                </div>
+
+                <div class="ll-character-info">
+
+                    <div class="ll-character-name">
+                        Финансовый отдел
+                    </div>
+
+                    <div class="ll-character-role">
+                        Подозреваемый
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ll-character ll-reveal">
+
+                <div class="ll-character-image">
+
+                    <span class="ll-placeholder-label">
+                        CHARACTER / 04
+                    </span>
+
+                </div>
+
+                <div class="ll-character-info">
+
+                    <div class="ll-character-name">
+                        Ты
+                    </div>
+
+                    <div class="ll-character-role">
+                        Руководитель
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GAMEPLAY
+     ========================================================= -->
+
+<section class="ll-section ll-gameplay">
+
+    <div class="ll-container">
+
+        <div class="ll-section-heading ll-reveal">
+
+            <div class="ll-eyebrow">
+                GAMEPLAY
+            </div>
+
+            <h2 class="ll-title">
+                БИЗНЕС — ЭТО<br>
+                НЕ ТОЛЬКО<br>
+                ЦИФРЫ.
+            </h2>
+
+        </div>
+
+
+        <!-- 01 -->
+
+        <div class="ll-gameplay-row ll-reveal">
+
+            <div class="ll-gameplay-image">
+
+                <span class="ll-placeholder-label">
+                    GAMEPLAY SCREEN / 01
+                </span>
+
+            </div>
+
+            <div>
+
+                <div class="ll-gameplay-number">
+                    01 / УПРАВЛЯЙ
+                </div>
+
+                <h3>
+                    Решения<br>
+                    имеют цену.
+                </h3>
+
+                <p>
+                    Поручить задачу не тому человеку.
+                    Потратить деньги не вовремя.
+                    Проигнорировать проблему.
+                    Каждое решение может изменить
+                    дальнейшие события.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="ll-gameplay-row reverse ll-reveal">
+
+            <div class="ll-gameplay-image">
+
+                <span class="ll-placeholder-label">
+                    GAMEPLAY SCREEN / 02
+                </span>
+
+            </div>
+
+            <div>
+
+                <div class="ll-gameplay-number">
+                    02 / ИССЛЕДУЙ
+                </div>
+
+                <h3>
+                    Ищи то,
+                    что не лежит
+                    на поверхности.
+                </h3>
+
+                <p>
+                    Проверяй документы, изучай офис,
+                    анализируй отчёты и сопоставляй
+                    информацию от разных персонажей.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="ll-gameplay-row ll-reveal">
+
+            <div class="ll-gameplay-image">
+
+                <span class="ll-placeholder-label">
+                    GAMEPLAY SCREEN / 03
+                </span>
+
+            </div>
+
+            <div>
+
+                <div class="ll-gameplay-number">
+                    03 / ДОВЕРЯЙ
+                </div>
+
+                <h3>
+                    Но сначала
+                    подумай.
+                </h3>
+
+                <p>
+                    У каждого человека есть свои
+                    интересы. Иногда самый спокойный
+                    сотрудник оказывается самым
+                    непредсказуемым.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     AUDIENCE
+     ========================================================= -->
+
+<section class="ll-section ll-audience">
+
+    <div class="ll-container">
+
+        <div class="ll-section-heading ll-reveal">
+
+            <div class="ll-eyebrow">
+                FOR YOU
+            </div>
+
+            <h2 class="ll-title">
+                ТЕБЕ СЮДА,
+                ЕСЛИ ТЫ...
+            </h2>
+
+        </div>
+
+
+        <div class="ll-audience-list">
+
+            <div class="ll-audience-item ll-reveal">
+                <span>
+                    Любишь игры, где выбор действительно важен
+                </span>
+                <span>01</span>
+            </div>
+
+            <div class="ll-audience-item ll-reveal">
+                <span>
+                    Любишь искать скрытые детали
+                </span>
+                <span>02</span>
+            </div>
+
+            <div class="ll-audience-item ll-reveal">
+                <span>
+                    Интересуешься бизнесом и деньгами
+                </span>
+                <span>03</span>
+            </div>
+
+            <div class="ll-audience-item ll-reveal">
+                <span>
+                    Любишь истории с несколькими вариантами развития
+                </span>
+                <span>04</span>
+            </div>
+
+            <div class="ll-audience-item ll-reveal">
+                <span>
+                    Хочешь проверить, насколько хорошо ты принимаешь решения
+                </span>
+                <span>05</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STATUS
+     ========================================================= -->
+
+<section class="ll-section ll-status" id="status">
+
+    <div class="ll-container">
+
+        <div class="ll-eyebrow" style="justify-content:center;">
+            PROJECT STATUS
+        </div>
+
+        <h2 class="ll-status-title ll-reveal">
+            ИСТОРИЯ<br>
+            ЕЩЁ НЕ НАЧАЛАСЬ.
+        </h2>
+
+        <p class="ll-status-description ll-reveal">
+            Last Ledger находится в разработке.
+            Мы постепенно собираем мир игры,
+            персонажей и историю, в которой
+            каждое решение имеет значение.
+        </p>
+
+
+        <div class="ll-status-grid">
+
+            <div class="ll-status-card">
+
+                <span class="ll-status-label">
+                    Дата выхода
+                </span>
+
+                <span class="ll-status-value">
+                    Пока в разработке
+                </span>
+
+            </div>
+
+
+            <div class="ll-status-card">
+
+                <span class="ll-status-label">
+                    Сообщество игры
+                </span>
+
+                <span class="ll-status-value">
+                    В разработке
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="ll-footer">
+
+    <div class="ll-container ll-footer-inner">
+
+        <div class="ll-footer-logo">
+            LAST <span class="ll-red">LEDGER</span>
+        </div>
+
+        <div class="ll-footer-meta">
+            © 2026 LAST LEDGER — GAME IN DEVELOPMENT
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+/* =========================
+   SCROLL ANIMATIONS
+   ========================= */
+
+const llObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+document
+    .querySelectorAll(".ll-reveal")
+    .forEach((element) => {
+
+        llObserver.observe(element);
+
+    });
+</script>
